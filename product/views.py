@@ -20,8 +20,9 @@ class ProductViewSet(ModelViewSet):
 
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['name']
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ["name", 'category__title']
+    ordering_fields = ["price", "-price"]
 
 # @api_view(['GET'])
 # def taskAll(request):

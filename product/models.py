@@ -23,6 +23,7 @@ class Product(models.Model):
     name = models.CharField(max_length=120, null=False)
     price = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(1000000000)])
     stock = models.PositiveIntegerField()
+    # stock = models.BigIntegerField()
     available = models.BooleanField(default=True)
     description = models.TextField(max_length=600, blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
