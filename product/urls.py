@@ -1,5 +1,6 @@
 from django.db import router
 from django.urls import path, include
+from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
 
 from product.views import CategoryViewSet, ProductViewSet
@@ -7,8 +8,11 @@ from product.views import CategoryViewSet, ProductViewSet
 router = DefaultRouter()
 router.register('products', ProductViewSet)
 router.register('categorys', CategoryViewSet)
+
+
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('auth/', obtain_auth_token),
 ]
 
 from product import views
