@@ -1,4 +1,3 @@
-from django.db import router
 from django.urls import path, include
 from rest_framework import permissions
 from rest_framework.authtoken.views import obtain_auth_token
@@ -31,7 +30,7 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='redoc-docs'),
 ]
 
-from product import views
+# from product import views
 
 # urlpatterns = [
 # path('', views.apiOverview, name='apiOverview'),
